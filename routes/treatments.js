@@ -27,9 +27,9 @@ router.route('/')
                     json: function(){
                         res.json(treatments);
                     }
-                  })
+                  });
               }    
-        })
+        });
     });
 
 module.exports = router;
