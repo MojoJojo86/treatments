@@ -15,21 +15,14 @@ router.use(methodOverride(function(req, res){
 }))
 
 router.route('/')
-    //GET all treatments
-    .get(function(req, res, next) {
-        //retrieve all treatments from Mongo
-        mongoose.model('Treatment').find({}, function (err, treatments) {
-              if (err) {
-                  return console.error(err);
-              } else {
-                  res.format({
-                    //JSON response will show all blobs in JSON format
-                    json: function(){
-                        res.json(treatments);
-                    }
-                  });
-              }    
-        });
+  .get((req, res) => {
+
+    mongoose.model('Treatment').find({}, (err, treatments) => {
+      if (err) {
+        res.status(400).json(err);
+      }
+      res.json(treatments);
     });
+  });
 
 module.exports = router;
