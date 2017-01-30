@@ -1,5 +1,6 @@
 var express = require('express'),
     router = express.Router(),
+    Treatment = require('../model/treatment'),
     mongoose = require('mongoose'), //mongo connection
     bodyParser = require('body-parser'), //parses information from POST
     methodOverride = require('method-override'); //used to manipulate POST
@@ -17,11 +18,11 @@ router.use(methodOverride(function(req, res){
 router.route('/')
   .get((req, res) => {
 
-    mongoose.model('Treatment').find({}, (err, treatments) => {
+    Patient.find({}, (err, patients) => {
       if (err) {
         res.status(400).json(err);
       }
-      res.json(treatments);
+      res.json(patients);
     });
   });
 
