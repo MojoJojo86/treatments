@@ -18,11 +18,11 @@ router.use(methodOverride(function(req, res){
 router.route('/')
   .get((req, res) => {
 
-    Patient.find({}, (err, patients) => {
+    Treatment.find({}, (err, treatments) => {
       if (err) {
         res.status(400).json(err);
       }
-      res.json(patients);
+      res.json(treatments);
     });
   });
 
