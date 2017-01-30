@@ -1,6 +1,6 @@
 var express = require('express'),
     router = express.Router(),
-    Treatment = require('../model/treatment'),
+    Treatment = require('../model'),
     mongoose = require('mongoose'), //mongo connection
     bodyParser = require('body-parser'), //parses information from POST
     methodOverride = require('method-override'); //used to manipulate POST
